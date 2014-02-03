@@ -30,6 +30,8 @@ import java.nio.charset.StandardCharsets;
  */
 public class SimplePushClient {
 
+    final OkHttpClient client = new OkHttpClient();
+
     /**
      * Performs an HTTP-PUT request against the give URL, identifying a valid update endpoint of a SimplePush Server.
      *
@@ -46,7 +48,6 @@ public class SimplePushClient {
 
         int statusCode;
 
-        final OkHttpClient client = new OkHttpClient();
         final HttpURLConnection conn =  client.open(url);
         conn.setDoOutput(true);
         conn.setUseCaches(false);
